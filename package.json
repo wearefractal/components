@@ -7,8 +7,10 @@
   "author": "Fractal contact@wearefractal.com (http://wearefractal.com)",
   "dependencies": {
     "insert-css": "^0.2.0",
+    "jeet": "^6.1.2",
     "lodash.merge": "^3.0.1",
-    "stylify": "^1.1.2"
+    "nib": "^1.1.0",
+    "stylify": "contra/stylify#resolve-uses"
   },
   "peerDependencies": {
     "react": "^0.12.2"
@@ -23,10 +25,21 @@
   },
   "main": "./index.js",
   "scripts": {
-    "dev": "mochify --recursive --transform stylify --reporter spec --watch",
+    "dev": "mochify --recursive --reporter spec --watch",
     "lint": "jshint . --exclude node_modules --config .jshintrc --reporter node_modules/jshint-stylish/stylish.js",
-    "test": "npm run-script lint && mochify --recursive --transform stylify --reporter spec",
-    "coveralls": "mochify --recursive --transform stylify --plugin [ mochify-istanbul --exclude '**/+(test|node_modules)/**/*' --report lcov --dir ./coverage ] && istanbul-coveralls"
+    "test": "npm run-script lint && mochify --recursive --reporter spec",
+    "coveralls": "mochify --recursive --plugin [ mochify-istanbul --exclude '**/+(test|node_modules)/**/*' --report lcov --dir ./coverage ] && istanbul-coveralls"
+  },
+  "browserify": {
+    "transform": [
+      "stylify"
+    ]
+  },
+  "stylify": {
+    "use": [
+      "nib",
+      "jeet"
+    ]
   },
   "engines": {
     "node": ">= 0.10"

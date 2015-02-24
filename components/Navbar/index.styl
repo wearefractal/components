@@ -1,11 +1,11 @@
 @require 'nib'
 @require 'jeet'
 
-navColor = #27ae60
-textColor = #ecf0f1
-activeTextColor = #ecf0f1
-activeNavColor = #2ecc71
-navHeight = 55px
+navColor = rgba(255, 255, 255, .5)
+textColor = #171717
+activeTextColor = #000
+activeNavColor = rgba(250, 250, 250, 1)
+navHeight = 75px
 
 .navbar-component
   col(1/1)
@@ -15,23 +15,30 @@ navHeight = 55px
   height: navHeight
   background-color: navColor
   color: textColor
+  text-align: center
+  .title
+    absolute: top 15px left 30px
+    font-size: 40px
 
   .inner
-    center(max-width: 700px)
+    display: inline-block
 
     a
-      span(1/5)
-      transition: 300ms background-color
+      transition: all .5s
+      min-width: 150px
       height: navHeight
       line-height: navHeight
-      display: block
+      display: inline-block
       font-size: 1.2em
       text-align: center
-
       outline: none
       color: inherit
       text-decoration: none
+      border-bottom: 3px solid rgba(0, 0, 0, 0)
+      &:hover
+        border-bottom: 3px solid #555
 
-    a.active
-      color: activeTextColor
-      background-color: activeNavColor
+      &.active
+        color: activeTextColor
+        background-color: activeNavColor
+        border-bottom: 3px solid #262626

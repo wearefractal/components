@@ -16,7 +16,8 @@ module.exports = React.createClass({
   css: css,
 
   propTypes: {
-    links: PropTypes.arrayOf(PropTypes.object)
+    links: PropTypes.arrayOf(PropTypes.object),
+    title: PropTypes.string
   },
 
   getDefaultProps: function(){
@@ -30,6 +31,10 @@ module.exports = React.createClass({
       className: 'navbar-component'
     }, this.props);
 
+    var title = DOM.div({
+      className: 'title'
+    }, this.props.title);
+
     var links = this.props.links.map(function(link) {
       link.key = link.to + '-nav-link';
       return Link(link, link.label);
@@ -39,6 +44,6 @@ module.exports = React.createClass({
       className: 'inner'
     }, links);
 
-    return DOM.nav(props, inner);
+    return DOM.nav(props, title, inner);
   }
 });

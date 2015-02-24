@@ -9,6 +9,7 @@ var css = require('./header.styl');
 module.exports = React.createClass({
   displayName: 'SplashHeader',
   propTypes: {
+    hasInfo: PropTypes.bool.isRequired,
     header: PropTypes.string.isRequired,
     subheader: PropTypes.string,
     background: PropTypes.string.isRequired,
@@ -33,16 +34,16 @@ module.exports = React.createClass({
       onClick: this.login
     }, this.props.loginText);
 
-    var subheader = DOM.div({
+    var subheader = this.props.subheader ? DOM.div({
       className: 'statement-subtext'
-    }, this.props.subheader);
+    }, this.props.subheader): null;
 
-    var downArrow = DOM.a({
+    var downArrow = this.props.hasInfo ? DOM.a({
       className: 'down-arrow',
       href: '#info'
-    }, DOM.img({
-      src: '/img/down.svg'
-    }));
+    }, DOM.svg({
+      dangerouslySetInnerHTML: {__html: '<?xml version="1.0"?> <svg height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <polygon fill="#ffffff" points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " /> </svg>'}
+    })) : null;
 
     var statement = DOM.div({
       className: 'statement-text'

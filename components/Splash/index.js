@@ -27,6 +27,7 @@ module.exports = React.createClass({
   render: function() {
 
     var header = Header({
+      hasInfo: !!this.props.info,
       header: this.props.header,
       subheader: this.props.subheader,
       background: this.props.background,
@@ -34,9 +35,10 @@ module.exports = React.createClass({
       loginUrl: this.props.loginUrl
     });
 
-    var info = Info({
+    var info = this.props.info ? Info({
       items: this.props.info
-    });
+    }) : null;
+
     return DOM.div({
       className: 'splash-component'
     }, header, info);

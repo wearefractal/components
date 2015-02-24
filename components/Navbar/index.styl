@@ -42,21 +42,21 @@ navHeight = 75px
 
       &.active
         color: activeTextColor
-        background-color: activeNavColor
+        background: activeNavColor
         border-bottom: 3px solid #262626
 
   .navbar-button
     display: none
 
-@media all and (max-width: 700px)
-  .navbar-component
+  @media all and (max-width: 700px)
     .inner
-      margin-top: 75px
-      border-top 1px solid #efefef
+      margin-top: 70px
       overflow: hidden
       a
         width: 100%
-        border-bottom: 3px solid rgba(0, 0, 0, 0) !important
+        border-bottom: none !important
+        &:active, &.active
+          background: rgba(200, 200, 200, 1) !important
 
     .navbar-button
       absolute: top 12px right 12px

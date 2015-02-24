@@ -45,9 +45,13 @@ module.exports = React.createClass({
       dangerouslySetInnerHTML: {__html: '<?xml version="1.0"?> <svg height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <polygon fill="#ffffff" points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " /> </svg>'}
     })) : null;
 
+    var statementHeader = DOM.div({
+      className: 'statement-header'
+    }, this.props.header);
+
     var statement = DOM.div({
       className: 'statement-text'
-    }, this.props.header, subheader);
+    }, statementHeader, subheader);
 
     var statementContainer = DOM.div({
       className: 'statement-container'

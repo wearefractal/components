@@ -45,4 +45,24 @@ describe('Navbar()', function() {
     str.should.equal('<nav class="navbar-component" style="background:#171717;"><div class="title"><img class="logo" src="/images/img.png"></div><div class="inner" style="max-height:0px;"></div><div class="navbar-button"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></nav>');
     done();
   });
+
+  it.skip('should render with style props', function(done){
+
+    var circle = Navbar({
+      links: [
+        {
+          label: 'link',
+          to: 'test',
+          badge: {
+            count: 1
+          }
+        }
+      ],
+    });
+    var str = React.renderToStaticMarkup(circle);
+    should.exist(str);
+    console.log(str);
+    // str.should.equal('<nav class="navbar-component" style="background:#171717;"><div class="title"><img class="logo" src="/images/img.png"></div><div class="inner" style="max-height:0px;"></div><div class="navbar-button"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></nav>');
+    done();
+  });
 });

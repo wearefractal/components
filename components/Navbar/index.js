@@ -59,7 +59,7 @@ module.exports = React.createClass({
     var links = this.props.links.map(function(link) {
       link.key = link.to + '-nav-link';
       link.onClick = this.toggleNav;
-      var badge = link.badge != null && link.count != null ? Badge(link.badge) : null;
+      var badge = link.badge != null && link.badge.count != null ? Badge(link.badge) : null;
       return Link(link, link.label, badge);
     }, this);
 

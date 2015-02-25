@@ -5,15 +5,11 @@ var merge = require('lodash.merge');
 var StyleMixin = require('../../../lib/StyleMixin');
 var css = require('./index.styl');
 var DOM = React.DOM;
-var PropTypes = React.PropTypes;
 
 module.exports = React.createClass({
   displayName: 'TextInput',
   mixins: [StyleMixin],
   css: css,
-  propTypes: {
-    onChange: PropTypes.func
-  },
 
   focus: function() {
     this.getDOMNode().focus();

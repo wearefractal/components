@@ -6,7 +6,7 @@ var Router = require('react-router');
 var Link = React.createFactory(Router.Link);
 var StyleMixin = require('../../lib/StyleMixin');
 var css = require('./index.styl');
-var Badge = require('../Badge');
+var Badge = React.createFactory(require('../Badge'));
 var DOM = React.DOM;
 var PropTypes = React.PropTypes;
 
@@ -59,7 +59,7 @@ module.exports = React.createClass({
     var links = this.props.links.map(function(link) {
       link.key = link.to + '-nav-link';
       link.onClick = this.toggleNav;
-      var badge = link.badge != null ? Badge(link.badge) : null;
+      var badge = link.badge != null && link.count != null ? Badge(link.badge) : null;
       return Link(link, link.label, badge);
     }, this);
 

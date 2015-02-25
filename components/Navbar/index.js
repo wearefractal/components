@@ -6,7 +6,7 @@ var Router = require('react-router');
 var Link = React.createFactory(Router.Link);
 var StyleMixin = require('../../lib/StyleMixin');
 var css = require('./index.styl');
-
+var Badge = require('../Badge');
 var DOM = React.DOM;
 var PropTypes = React.PropTypes;
 
@@ -50,13 +50,12 @@ module.exports = React.createClass({
       DOM.div({className: 'bar'}),
       DOM.div({className: 'bar'})
     );
-
-    var self = this;
     var links = this.props.links.map(function(link) {
       link.key = link.to + '-nav-link';
-      link.onClick = self.toggleNav;
-      return Link(link, link.label);
-    });
+      link.onClick = this.toggleNav;
+      var badge = link.badge != null ? Badge(link.badge) : null;
+      return Link(link, link.label, badge);
+    }, this);
 
     var inner = DOM.div({
       className: 'inner',

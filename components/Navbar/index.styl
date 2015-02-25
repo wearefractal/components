@@ -26,6 +26,7 @@ navHeight = 75px
     display: inline-block
 
     a
+      position: relative
       transition: all .5s
       min-width: 150px
       height: navHeight
@@ -44,6 +45,8 @@ navHeight = 75px
         color: activeTextColor
         background: activeNavColor
         border-bottom: 3px solid #262626
+      .badge-component
+        absolute: top 5px right 15px
 
   .navbar-button
     display: none

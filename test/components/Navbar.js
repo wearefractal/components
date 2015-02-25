@@ -13,7 +13,7 @@ describe('Navbar()', function() {
     done();
   });
 
-  it('should render with option title', function(done){
+  it('should render with title props', function(done){
     var circle = Navbar({
       title: 'navbar'
     });
@@ -23,13 +23,26 @@ describe('Navbar()', function() {
     done();
   });
 
-  it('should render with option logo', function(done){
+  it('should render with logo props', function(done){
     var circle = Navbar({
       logo: '/images/img.png'
     });
     var str = React.renderToStaticMarkup(circle);
     should.exist(str);
     str.should.equal('<nav class="navbar-component"><div class="title"><img class="logo" src="/images/img.png"></div><div class="inner" style="max-height:0px;"></div><div class="navbar-button"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></nav>');
+    done();
+  });
+
+  it('should render with style props', function(done){
+    var circle = Navbar({
+      logo: '/images/img.png',
+      style: {
+        background: '#171717'
+      }
+    });
+    var str = React.renderToStaticMarkup(circle);
+    should.exist(str);
+    str.should.equal('<nav class="navbar-component" style="background:#171717;"><div class="title"><img class="logo" src="/images/img.png"></div><div class="inner" style="max-height:0px;"></div><div class="navbar-button"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></nav>');
     done();
   });
 });

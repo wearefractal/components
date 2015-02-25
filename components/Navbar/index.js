@@ -36,7 +36,8 @@ module.exports = React.createClass({
   },
   render: function(){
     var props = merge({
-      className: 'navbar-component'
+      className: 'navbar-component',
+      style: this.props.style
     }, this.props);
 
     var logo = DOM.img({

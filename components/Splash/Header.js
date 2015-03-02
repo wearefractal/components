@@ -30,7 +30,7 @@ module.exports = React.createClass({
   render: function() {
 
     var loginButton = DOM.button({
-      className: 'pure-button pure-button-primary login-button',
+      className: 'login-button',
       onClick: this.login
     }, this.props.loginText);
 

@@ -1,0 +1,20 @@
+@require 'nib'
+
+button(color=#333, hoverText=#fff)
+  background: none
+  border: 2px solid color
+  color: color
+  border-radius: 10px
+  font-size: 22px
+  text-transform: none
+  padding: 14px
+  padding-left: 25px
+  padding-right: 25px
+  transition: all .2s
+  outline: none
+  cursor: pointer
+  &:hover
+    color: hoverText
+    background-color: color
+  &:active
+    outline: none

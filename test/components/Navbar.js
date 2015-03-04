@@ -2,6 +2,7 @@
 
 var should = require('should');
 var React = require('react');
+var DOM = React.DOM;
 var Navbar = React.createFactory(require('../../components/Navbar'));
 
 describe('Navbar()', function() {
@@ -10,6 +11,16 @@ describe('Navbar()', function() {
     var str = React.renderToStaticMarkup(circle);
     should.exist(str);
     str.should.equal('<nav class="navbar-component"><div class="title"></div><div class="inner" style="max-height:0px;"></div><div class="navbar-button"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></nav>');
+    done();
+  });
+
+  it('should render given children', function(done){
+    var circle = Navbar({
+      title: 'navbar'
+    }, DOM.span(null, 'Test'));
+    var str = React.renderToStaticMarkup(circle);
+    should.exist(str);
+    str.should.equal('<nav class="navbar-component" title="navbar"><div class="title">navbar</div><div class="inner" style="max-height:0px;"></div><span>Test</span><div class="navbar-button"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></nav>');
     done();
   });
 

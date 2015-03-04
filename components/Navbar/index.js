@@ -70,6 +70,6 @@ module.exports = React.createClass({
       }
     }, links);
 
-    return DOM.nav(props, title, inner, button);
+    return DOM.nav(props, title, inner, props.children, button);
   }
 });

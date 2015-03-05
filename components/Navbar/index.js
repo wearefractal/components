@@ -18,7 +18,8 @@ module.exports = React.createClass({
   propTypes: {
     links: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string,
-    logo: PropTypes.string
+    logoSrc: PropTypes.string,
+    logoLink: PropTypes.string
   },
 
   getInitialState: function() {
@@ -40,13 +41,17 @@ module.exports = React.createClass({
       style: this.props.style
     }, this.props);
 
-    var logo = DOM.img({
-      className: 'logo',
-      src: this.props.logo
-    });
+    var logo = DOM.a({
+      href: this.props.logoLink,
+    },
+      DOM.img({
+        className: 'logo',
+        src: this.props.logoSrc
+    }));
+
     var title = DOM.div({
       className: 'title'
-    }, this.props.logo ? logo : this.props.title);
+    }, this.props.logoSrc ? logo : this.props.title);
 
     var button = DOM.div({
       className: 'navbar-button',

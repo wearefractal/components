@@ -25,11 +25,12 @@ describe('Navbar()', function() {
 
   it('should render with logo props', function(done){
     var circle = Navbar({
-      logo: '/images/img.png'
+      logoSrc: '/images/img.png',
+      logoLink: '/'
     });
     var str = React.renderToStaticMarkup(circle);
     should.exist(str);
-    str.should.equal('<nav class="navbar-component"><div class="title"><img class="logo" src="/images/img.png"></div><div class="inner" style="max-height:0px;"></div><div class="navbar-button"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></nav>');
+    str.should.equal('<nav class="navbar-component"><div class="title"><a href="/"><img class="logo" src="/images/img.png"></a></div><div class="inner" style="max-height:0px;"></div><div class="navbar-button"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></nav>');
     done();
   });
 

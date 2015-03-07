@@ -19,7 +19,6 @@ var Background = React.createClass({
     image: React.PropTypes.string,
     stream: React.PropTypes.object,
     muted: React.PropTypes.bool,
-    video: React.PropTypes.string,
     blur: React.PropTypes.number,
     brightness: React.PropTypes.number
   },
@@ -79,9 +78,9 @@ var Background = React.createClass({
     }
 
     return React.DOM.div({
+      className: this.props.className,
       ref: 'background',
-      style: styles,
-      className: this.props.className
+      style: styles
     });
   }
 });

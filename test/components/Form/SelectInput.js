@@ -15,7 +15,7 @@ describe('Form/SelectInput()', function() {
     str.should.equal('<select class="select-input-component"></select>');
     done();
   });
-  it('should render with input properties', function(done){
+  it('should render with children elements', function(done){
     var option1 = React.DOM.option({
       className: 'option',
       value: 'option1'
@@ -27,6 +27,30 @@ describe('Form/SelectInput()', function() {
 
     var input = SelectInput({
     }, option1, option2);
+    var str = React.renderToStaticMarkup(input);
+    should.exist(str);
+    str.should.equal('<select class="select-input-component"><option class="option" value="option1">option1</option><option class="option" value="option2">option2</option></select>');
+    done();
+  });
+
+  it('should render with array of options', function(done) {
+    var options = [
+    {
+      props: {
+        className: 'option',
+        value: 'option1'
+      },
+      content: 'option1'
+    },
+    {
+      props: {
+        className: 'option',
+        value: 'option2'
+      },
+      content: 'option2'
+    }];
+
+    var input = SelectInput({options: options});
     var str = React.renderToStaticMarkup(input);
     should.exist(str);
     str.should.equal('<select class="select-input-component"><option class="option" value="option1">option1</option><option class="option" value="option2">option2</option></select>');

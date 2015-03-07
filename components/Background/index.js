@@ -30,7 +30,6 @@ var Background = React.createClass({
   },
 
   render: function () {
-    // TODO: move all this crap to lib/filters.js
     var filterProps = {
       blur: this.props.blur,
       brightness: this.props.brightness

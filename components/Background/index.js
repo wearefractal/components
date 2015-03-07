@@ -1,8 +1,8 @@
 'use strict';
 
 var React = require('react');
-var addStyle = require('./lib/addStyle');
-var filters = require('./lib/filters');
+var addStyle = require('../../lib/addStyle');
+var filters = require('../../lib/filters');
 
 var modernVendors = [
   'filter', '-webkit-filter', '-moz-filter',

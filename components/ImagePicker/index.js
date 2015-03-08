@@ -18,11 +18,12 @@ module.exports = React.createClass({
   },
 
   grabPhoto: function(e){
+    var self = this;
     resizeImage(e.target.files[0], {width: 600, height: 600}, function(err, img){
       if(err){
         //TODO: Handle err
       }
-      this.props.usePhoto(img);
+      self.props.usePhoto(img);
     });
   },
 
@@ -48,7 +49,7 @@ module.exports = React.createClass({
     });
 
     return DOM.div({
-      className: 'image-picker-component',
+      className: this.props.className || 'image-picker-component',
     }, photoInput, photoInputButton);
   }
 });

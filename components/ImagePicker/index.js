@@ -30,7 +30,7 @@ module.exports = React.createClass({
 
   getPhoto: function(e) {
     e.preventDefault();
-    this.refs.photoInput().getDOMNode.click();
+    this.refs.photoInput.getDOMNode().click();
   },
 
   render: function() {

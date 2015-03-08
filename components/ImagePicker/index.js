@@ -10,6 +10,7 @@ var input = React.createFactory(require('../Form/TextInput'));
 module.exports = React.createClass({
   css: css,
   propTypes: {
+    buttonContent: PropTypes.string,
     dimensions: PropTypes.shape({
       width: PropTypes.number,
       height: PropTypes.number
@@ -46,7 +47,7 @@ module.exports = React.createClass({
     var photoInputButton = DOM.button({
       className: 'upload-button',
       onClick: this.getPhoto,
-    });
+    }, this.props.buttonContent);
 
     return DOM.div({
       className: this.props.className || 'image-picker-component',

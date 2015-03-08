@@ -6,11 +6,13 @@
   "repository": "git://github.com/wearefractal/components.git",
   "author": "Fractal contact@wearefractal.com (http://wearefractal.com)",
   "dependencies": {
+    "Base64": "^0.3.0",
     "insert-css": "^0.2.0",
     "jeet": "^6.1.2",
     "lodash.merge": "^3.0.1",
     "nib": "^1.1.0",
-    "stylify": "contra/stylify#resolve-uses"
+    "stylify": "contra/stylify#resolve-uses",
+    "uuid": "^2.0.1"
   },
   "peerDependencies": {
     "react": "^0.12.2",

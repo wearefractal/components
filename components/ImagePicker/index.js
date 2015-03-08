@@ -5,7 +5,7 @@ var DOM = React.DOM;
 var PropTypes = React.PropTypes;
 var resizeImage = require('../');
 var css = require('../../lib/StyleMixin');
-var input = React.createFactory(require('../TextInput'));
+var input = React.createFactory(require('../Form/TextInput'));
 
 module.exports = React.createClass({
   css: css,

@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var classes = require('classnames');
 var DOM = React.DOM;
 var PropTypes = React.PropTypes;
 var resizeImage = require('../../lib/resizeImage');
@@ -10,22 +11,23 @@ var input = React.createFactory(require('../Form/TextInput'));
 module.exports = React.createClass({
   css: css,
   propTypes: {
-    buttonContent: PropTypes.string,
     dimensions: PropTypes.shape({
       width: PropTypes.number,
       height: PropTypes.number
     }),
-    usePhoto: PropTypes.func
+    onPhoto: PropTypes.func,
+    onErrored: PropTypes.func
   },
 
   grabPhoto: function(e){
-    var self = this;
-    resizeImage(e.target.files[0], {width: 600, height: 600}, function(err, img){
+    var width = this.props.dimensions.width;
+    var height = this.props.dimensions.height;
+    resizeImage.bind(e.target.files[0], {width: width, height: height}, function(err, img){
       if(err){
-        //TODO: Handle err
+        return this.props.onErrored(err);
       }
-      self.props.usePhoto(img);
-    });
+      this.props.onPhoto(img);
+    }).bind(this);
   },
 
   getPhoto: function(e) {
@@ -47,10 +49,10 @@ module.exports = React.createClass({
     var photoInputButton = DOM.button({
       className: 'upload-button',
       onClick: this.getPhoto,
-    }, this.props.buttonContent);
+    }, this.props.children);
 
     return DOM.div({
-      className: this.props.className || 'image-picker-component',
+      className: classes(this.props.className, 'image-picker-component'),
     }, photoInput, photoInputButton);
   }
 });

@@ -1,12 +1,14 @@
 'use strict';
 
 var React = require('react');
+var DOM = React.DOM;
 var PropTypes = React.PropTypes;
 var resizeImage = require('../');
+var css = require('../../lib/StyleMixin');
 var input = React.createFactory(require('../TextInput'));
 
 module.exports = React.createClass({
-
+  css: css,
   propTypes: {
     dimensions: PropTypes.shape({
       width: PropTypes.number,
@@ -24,14 +26,29 @@ module.exports = React.createClass({
     });
   },
 
+  getPhoto: function(e) {
+    e.preventDefault();
+    this.refs.photoInput.getDOMNode.click();
+  },
+
   render: function() {
-    return input({
+    var photoInput = input({
       onChange: this.grabPhoto,
       ref: 'photoInput',
       type: 'file',
       accept: 'image/*',
-      className: 'photo-input',
-      id: 'photo-input'
+      className: 'upload-photo',
+      id: 'photo-input',
+      hidden: true
     });
+
+    var photoInputButton = DOM.button({
+      className: 'upload-button',
+      onClick: this.getPhoto,
+    });
+
+    return DOM.div({
+      className: 'image-picker-component',
+    }, photoInput, photoInputButton);
   }
 });

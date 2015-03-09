@@ -22,12 +22,12 @@ module.exports = React.createClass({
   grabPhoto: function(e){
     var width = this.props.dimensions.width;
     var height = this.props.dimensions.height;
-    resizeImage.bind(e.target.files[0], {width: width, height: height}, function(err, img){
+    resizeImage(e.target.files[0], {width: width, height: height}, function(err, img){
       if(err){
         return this.props.onErrored(err);
       }
       this.props.onPhoto(img);
-    }).bind(this);
+    }.bind(this));
   },
 
   getPhoto: function(e) {

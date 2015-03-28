@@ -14,5 +14,4 @@ describe('Info()', function() {
     str.should.equal('<div id="info" class="info-component"><p class="title">How it works</p><div class="info"><div class="circleicon-component" style="background:#2980b9;"><span class="text">1</span></div><p class="info-header">test</p><p>content</p></div></div>');
     done();
   });
-
 });

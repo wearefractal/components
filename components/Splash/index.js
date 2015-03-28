@@ -25,7 +25,6 @@ module.exports = React.createClass({
     loginUrl: PropTypes.string.isRequired
   },
   render: function() {
-
     var header = Header({
       hasInfo: !!this.props.info,
       header: this.props.header,

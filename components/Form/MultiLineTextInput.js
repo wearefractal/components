@@ -11,14 +11,24 @@ module.exports = React.createClass({
   displayName: 'TextInput',
   mixins: [StyleMixin],
   css: css,
+  getInitialState: function() {
+
+  },
   normalizeData: function(v) {
+    if (this.props.maxLength != null) {
+      return v.slice(0, this.props.maxLength);
+    }
     return v;
   },
   render: function() {
     var props = merge({
-      className: classes('text-input-component', this.props.className),
-      type: 'text'
+      className: classes('multiline-text-input-component', this.props.className)
     }, this.props);
-    return DOM.input(props, this.props.children);
+
+    var counter = DOM.div({
+      className: 'counter'
+    }, props.maxLength - this.state.count.length);
+
+    return DOM.textarea(props, counter);
   }
 });

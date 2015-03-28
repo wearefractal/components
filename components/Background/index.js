@@ -17,16 +17,8 @@ var Background = React.createClass({
   propTypes: {
     color: React.PropTypes.string,
     image: React.PropTypes.string,
-    stream: React.PropTypes.object,
-    muted: React.PropTypes.bool,
     blur: React.PropTypes.number,
     brightness: React.PropTypes.number
-  },
-
-  getDefaultProps: function () {
-    return {
-      muted: true
-    };
   },
 
   render: function () {

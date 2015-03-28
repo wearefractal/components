@@ -8,7 +8,7 @@ var css = require('./index.styl');
 var DOM = React.DOM;
 
 module.exports = React.createClass({
-  displayName: 'TextInput',
+  displayName: 'MultiLineTextInput',
   mixins: [StyleMixin],
   css: css,
   getInitialState: function() {

@@ -27,7 +27,8 @@ module.exports = React.createClass({
       style: merge(this.props.style, {
         background: 'url(' + this.props.src + ')',
         backgroundSize: 'contain',
-        backgroundPosition: 'center center'
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat'
       })
     });
   }

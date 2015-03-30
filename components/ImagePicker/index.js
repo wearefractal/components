@@ -4,7 +4,7 @@ var React = require('react');
 var classes = require('classnames');
 var DOM = React.DOM;
 var PropTypes = React.PropTypes;
-var scaleImage = require('../../lib/ScaleImage');
+var scaleImage = require('../../lib/scaleImage');
 var css = require('../../lib/StyleMixin');
 var input = React.createFactory(require('../Form/TextInput'));
 

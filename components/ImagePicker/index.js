@@ -4,7 +4,7 @@ var React = require('react');
 var classes = require('classnames');
 var DOM = React.DOM;
 var PropTypes = React.PropTypes;
-var resizeImage = require('../../lib/ResizeImage');
+var scaleImage = require('../../lib/ScaleImage');
 var css = require('../../lib/StyleMixin');
 var input = React.createFactory(require('../Form/TextInput'));
 
@@ -20,9 +20,12 @@ module.exports = React.createClass({
   },
 
   grabPhoto: function(e){
-    var width = this.props.dimensions.width;
-    var height = this.props.dimensions.height;
-    resizeImage(e.target.files[0], {width: width, height: height}, function(err, img){
+    var imageOpts = {
+      el: document.createElement('canvas'),
+      scale: this.props.scale,
+      src: e.target.files[0]
+    };
+    scaleImage(imageOpts, function(err, img){
       if(err){
         return this.props.onErrored(err);
       }

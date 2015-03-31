@@ -17,7 +17,6 @@ module.exports = React.createClass({
 
   propTypes: {
     links: PropTypes.arrayOf(PropTypes.object),
-    title: PropTypes.string,
     logo: PropTypes.node
   },
 

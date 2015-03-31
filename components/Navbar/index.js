@@ -43,8 +43,8 @@ module.exports = React.createClass({
       style: this.props.style
     }, this.props);
 
-    var logo = DOM.a({
-      href: this.props.logo.href,
+    var logo = Link({
+      to: this.props.logo.href,
     },
       DOM.img({
         className: 'logo',

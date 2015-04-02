@@ -5,11 +5,11 @@ var addStyle = require('../../lib/addStyle');
 var filters = require('../../lib/filters');
 
 var modernVendors = [
-  'filter', '-webkit-filter', '-moz-filter',
-  '-ms-filter', '-o-filter'
+  'filter', 'WebkitFilter', 'MozFilter',
+  'MsFilter', 'OFilter'
 ];
 var geckoVendors = ['filter'];
-var dxVendors = ['filter', '-ms-filter'];
+var dxVendors = ['filter', 'MsFilter'];
 
 var Background = React.createClass({
   displayName: 'Background',

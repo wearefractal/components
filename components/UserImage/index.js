@@ -25,10 +25,7 @@ module.exports = React.createClass({
     return DOM.div({
       className: 'user-image-component',
       style: merge(this.props.style, {
-        background: 'url(' + this.props.src + ')',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat'
+        background: '#cdcdcd url(' + this.props.src + ')'
       })
     });
   }

@@ -28,11 +28,11 @@ var Background = React.createClass({
     };
 
     var styles = {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      height: '100%',
-      width: '100%',
+      position: 'fixed',
+      top: -this.props.blur * 1.5,
+      left: -this.props.blur * 1.5,
+      height: '110%',
+      width: '110%',
       zIndex: -100
     };
 

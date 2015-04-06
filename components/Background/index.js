@@ -1,6 +1,9 @@
 'use strict';
 
 var React = require('react');
+var classes = require('classnames');
+var StyleMixin = require('../../lib/StyleMixin');
+var css = require('./index.styl');
 var addStyle = require('../../lib/addStyle');
 var filters = require('../../lib/filters');
 
@@ -13,7 +16,8 @@ var dxVendors = ['filter', 'MsFilter'];
 
 var Background = React.createClass({
   displayName: 'Background',
-
+  mixins: [StyleMixin],
+  css: css,
   propTypes: {
     color: React.PropTypes.string,
     image: React.PropTypes.string,
@@ -28,12 +32,8 @@ var Background = React.createClass({
     };
 
     var styles = {
-      position: 'fixed',
       top: -this.props.blur * 1.5,
       left: -this.props.blur * 1.5,
-      height: '110%',
-      width: '110%',
-      zIndex: -100
     };
 
     if (this.props.color) {
@@ -42,9 +42,6 @@ var Background = React.createClass({
 
     if (this.props.image) {
       styles.backgroundImage = 'url('+this.props.image+')';
-      styles.backgroundRepeat = 'no-repeat';
-      styles.backgroundSize = 'cover';
-      styles.backgroundPosition = '50%';
 
       // old internet explorer
       var dxImgFilters = filters.dx({
@@ -70,7 +67,7 @@ var Background = React.createClass({
     }
 
     return React.DOM.div({
-      className: this.props.className,
+      className: classes('background-component', this.props.className),
       ref: 'background',
       style: styles
     });

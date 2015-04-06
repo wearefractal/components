@@ -7,6 +7,9 @@ var css = require('./index.styl');
 var addStyle = require('../../lib/addStyle');
 var filters = require('../../lib/filters');
 
+var DOM = React.DOM;
+var PropTypes = React.PropTypes;
+
 var modernVendors = [
   'filter', 'WebkitFilter', 'MozFilter',
   'MsFilter', 'OFilter'
@@ -19,10 +22,10 @@ var Background = React.createClass({
   mixins: [StyleMixin],
   css: css,
   propTypes: {
-    color: React.PropTypes.string,
-    image: React.PropTypes.string,
-    blur: React.PropTypes.number,
-    brightness: React.PropTypes.number
+    color: PropTypes.string,
+    image: PropTypes.string,
+    blur: PropTypes.number,
+    brightness: PropTypes.number
   },
 
   render: function () {
@@ -66,9 +69,8 @@ var Background = React.createClass({
       addStyle(styles, modernVendors, modernValue);
     }
 
-    return React.DOM.div({
+    return DOM.div({
       className: classes('background-component', this.props.className),
-      ref: 'background',
       style: styles
     });
   }

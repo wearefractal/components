@@ -23,11 +23,14 @@ module.exports = React.createClass({
     };
   },
   render: function() {
-    return DOM.div({
+
+    var props = merge({
       className: classes('user-image-component', this.props.className),
-      style: merge(this.props.style, {
+      style: merge({
         background: '#cdcdcd url(' + this.props.src + ')'
       })
-    });
+    }, this.props);
+
+    return DOM.div(props, this.props.children);
   }
 });

@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var classes = require('classnames');
 var merge = require('lodash.merge');
 var StyleMixin = require('../../lib/StyleMixin');
 var css = require('./index.styl');
@@ -23,7 +24,7 @@ module.exports = React.createClass({
   },
   render: function() {
     return DOM.div({
-      className: 'user-image-component',
+      className: classes('user-image-component', this.props.className),
       style: merge(this.props.style, {
         background: '#cdcdcd url(' + this.props.src + ')'
       })

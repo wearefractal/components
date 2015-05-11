@@ -7,7 +7,7 @@
   "author": "Fractal contact@wearefractal.com (http://wearefractal.com)",
   "dependencies": {
     "Base64": "^0.3.0",
-    "classnames": "^1.2.0",
+    "classnames": "^2.1.1",
     "insert-css": "^0.2.0",
     "jeet": "^6.1.2",
     "lodash.merge": "^3.0.1",
@@ -25,7 +25,7 @@
     "jshint-stylish": "^1.0.0",
     "mochify": "dylanfm/mochify.js",
     "mochify-istanbul": "^2.1.1",
-    "should": "^5.0.0"
+    "should": "^6.0.0"
   },
   "scripts": {
     "dev": "mochify --recursive --reporter spec --watch",

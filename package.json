@@ -12,8 +12,7 @@
     "jeet": "^6.1.2",
     "lodash.merge": "^3.0.1",
     "nib": "^1.1.0",
-    "stylify": "contra/stylify#resolve-uses",
-    "uuid": "^2.0.1"
+    "stylify": "contra/stylify#resolve-uses"
   },
   "peerDependencies": {
     "react": "^0.12.2",

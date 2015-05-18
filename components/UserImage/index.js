@@ -9,6 +9,12 @@ var css = require('./index.styl');
 var DOM = React.DOM;
 var PropTypes = React.PropTypes;
 
+function preload(src){
+  if (src) {
+    new Image().src = src;
+  }
+}
+
 module.exports = React.createClass({
   displayName: 'UserImage',
   mixins: [StyleMixin],
@@ -22,8 +28,13 @@ module.exports = React.createClass({
       src: 'http://www.gravatar.com/avatar/0?d=mm&s=300'
     };
   },
+  componentWillMount: function() {
+    preload(this.props.src);
+  },
+  componentWillReceiveProps: function(props) {
+    preload(props.src);
+  },
   render: function() {
-
     var props = merge({
       className: classes('user-image-component', this.props.className),
       style: merge({
